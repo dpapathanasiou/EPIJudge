@@ -2,8 +2,15 @@ from test_framework import generic_test
 
 
 def buy_and_sell_stock_once(prices):
-    # TODO - you fill in here.
-    return 0.0
+    minpx = float('inf')
+    maxprofit = 0.0
+    for px in prices:
+        if px < minpx:
+            minpx = px
+        else:
+            if px - minpx > maxprofit:
+                maxprofit = px - minpx
+    return maxprofit
 
 
 if __name__ == '__main__':
