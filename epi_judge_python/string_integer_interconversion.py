@@ -12,7 +12,7 @@ def int_to_string(x):
     chars = []
     while x > 0:
         rem = x % 10
-        chars.insert(0, '%d' % rem) # irony!
+        chars.insert(0, chr(ord('0')+rem))
         x = x // 10
 
     if neg:
