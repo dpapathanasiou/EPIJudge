@@ -17,10 +17,28 @@ def int_to_string(x):
 
     return ''.join(chars)
 
+def get_digit (c):
+    for i in range(10):
+        if c == chr(ord('0')+i):
+            return i
+    raise ValueError("char is not a digit")
 
 def string_to_int(s):
-    # TODO - you fill in here.
-    return 0
+    if len(s) == 0:
+        raise ValueError("invalid input")
+
+    neg = s[0] == '-'
+    if neg:
+        s = s[1:]
+
+    i = 0
+    for j in range(len(s)):
+        i += get_digit(s[j]) * (10 ** (len(s)-j-1))
+
+    if neg:
+         i = -1 * i
+
+    return i
 
 
 def wrapper(x, s):
