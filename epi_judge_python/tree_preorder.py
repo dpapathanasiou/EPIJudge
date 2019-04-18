@@ -2,8 +2,12 @@ from test_framework import generic_test
 
 
 def preorder_traversal(tree):
-    # TODO - you fill in here.
-    return []
+    nodes = []
+    if tree is not None:
+        nodes.append(tree.data)
+        nodes.extend(preorder_traversal(tree.left))
+        nodes.extend(preorder_traversal(tree.right))
+    return nodes
 
 
 if __name__ == '__main__':
