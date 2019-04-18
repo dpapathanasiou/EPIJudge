@@ -3,8 +3,19 @@ from test_framework.test_failure import TestFailure
 
 
 def int_to_string(x):
-    # TODO - you fill in here.
-    return ''
+    neg = x < 0
+    x = abs(x)
+
+    chars = []
+    while x > 0:
+        rem = x % 10
+        chars.insert(0, '%d' % rem) # irony!
+        x = x // 10
+
+    if neg:
+        chars.insert(0, '-')
+
+    return ''.join(chars)
 
 
 def string_to_int(s):
