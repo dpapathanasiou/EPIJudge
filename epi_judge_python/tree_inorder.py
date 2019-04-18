@@ -1,9 +1,14 @@
 from test_framework import generic_test
 
+# undocumented: tree has .left, .right, .data
 
 def inorder_traversal(tree):
-    # TODO - you fill in here.
-    return []
+    nodes = []
+    if tree is not None:
+        nodes.extend(inorder_traversal(tree.left))
+        nodes.append(tree.data)
+        nodes.extend(inorder_traversal(tree.right))
+    return nodes
 
 
 if __name__ == '__main__':
