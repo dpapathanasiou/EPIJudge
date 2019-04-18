@@ -3,6 +3,9 @@ from test_framework.test_failure import TestFailure
 
 
 def int_to_string(x):
+    if x == 0:
+        return '0'
+
     neg = x < 0
     x = abs(x)
 
