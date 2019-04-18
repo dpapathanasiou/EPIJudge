@@ -1,6 +1,6 @@
 from test_framework import generic_test
 
-# undocumented: tree has .left, .right, .data
+# use `BinaryTreeNode` from binary_tree_node.py
 
 def inorder_traversal(tree):
     nodes = []
