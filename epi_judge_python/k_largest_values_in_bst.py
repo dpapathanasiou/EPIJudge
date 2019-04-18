@@ -1,9 +1,20 @@
 from test_framework import generic_test, test_utils
 
 
+def inorder_traversal(tree):
+    nodes = []
+    if tree is not None:
+        nodes.extend(inorder_traversal(tree.left))
+        nodes.append(tree.data)
+        nodes.extend(inorder_traversal(tree.right))
+    return nodes
+
 def find_k_largest_in_bst(tree, k):
-    # TODO - you fill in here.
-    return None
+    res = []
+    nodes = inorder_traversal(tree)
+    for i in range(len(nodes)-1, len(nodes)-k-1, -1):
+        res.append(nodes[i])
+    return res
 
 
 if __name__ == '__main__':
