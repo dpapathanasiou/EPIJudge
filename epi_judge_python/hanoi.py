@@ -6,10 +6,24 @@ from test_framework.test_utils import enable_executor_hook
 
 NUM_PEGS = 3
 
-
 def compute_tower_hanoi(num_rings):
-    # TODO - you fill in here.
-    return []
+    """Return a list of all the transfers needed to move a particular number of rings from left to right"""
+
+    transfers = []  # this problem expects list of (from, to) tuples for each move
+
+    def move(pegs, n, src, tgt, tmp):
+        if n > 0:
+            move(pegs, n - 1, src, tmp, tgt)
+            ring = pegs[src].pop()
+            pegs[tgt].append(ring)
+            transfers.append([src, tgt])
+            move(pegs, n - 1, tmp, tgt, src)
+
+    pegs = [[] for _ in range(NUM_PEGS)]
+    pegs[0] = [i for i in range(num_rings, 0, -1)]
+    move(pegs, num_rings, 0, 2, 1)
+
+    return transfers
 
 
 @enable_executor_hook
