@@ -19,7 +19,7 @@ def compute_tower_hanoi(num_rings):
             transfers.append([src, tgt])
             move(pegs, n - 1, tmp, tgt, src)
 
-    pegs = [[] for _ in range(NUM_PEGS)]
+    pegs = [[]] * NUM_PEGS
     pegs[0] = [i for i in range(num_rings, 0, -1)]
     move(pegs, num_rings, 0, 2, 1)
 
