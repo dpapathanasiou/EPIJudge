@@ -14,8 +14,7 @@ def compute_tower_hanoi(num_rings):
     def move(pegs, n, src, tgt, tmp):
         if n > 0:
             move(pegs, n - 1, src, tmp, tgt)
-            ring = pegs[src].pop()
-            pegs[tgt].append(ring)
+            pegs[tgt].append(pegs[src].pop())
             transfers.append([src, tgt])
             move(pegs, n - 1, tmp, tgt, src)
 
