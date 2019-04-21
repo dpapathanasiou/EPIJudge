@@ -11,14 +11,7 @@ def find_anagrams(dictionary):
         words.append(word)
         d[w] = words
 
-    anagrams = []
-    for word in dictionary:
-        words = d[h[word]]
-        if len(words) > 1:
-            if words not in anagrams:
-                anagrams.append(words)
-    return anagrams
-
+    return list(filter(lambda x: len(x) > 1, d.values()))
 
 if __name__ == '__main__':
     exit(
